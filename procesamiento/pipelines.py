@@ -3,20 +3,16 @@ from procesamiento.mejoras import MejoradorImagen
 
 
 class PipelineMejoraImagen:
-    """Ejecuta el flujo de análisis y mejora de una imagen."""
-
+    """Realiza el analisis y mejoras de brillo de una imagen"""
     def __init__(self):       
         self.analizador = AnalizadorImagen()
         self.mejorador = MejoradorImagen()
-
     def decidir_factor_brillo(self, promedio):
-        """Decide el factor de brillo según el promedio de intensidad.
-
+        """calcula el factor de brillo según el promedio de intensidad
         Args:
             promedio: Brillo promedio entre 0 y 255.
-
         Returns:
-            Factor numérico para aplicar con ImageEnhance.Brightness.
+            valor numérico para aplicar
         """
         if promedio < 60:
             return 1.5
@@ -30,13 +26,11 @@ class PipelineMejoraImagen:
             return 0.75
 
     def mejorar_brillo(self, imagen):
-        """Analiza y mejora el brillo de una imagen.
-
+        """analiza y mejora el brillo de una imagen
         Args:
-            imagen: Imagen original.
-
+            imagen: Imagen
         Returns:
-            Imagen mejorada, promedio original y factor aplicado.
+            Imagen mejorada promedio  y factor aplicado
         """
         promedio = self.analizador.calcular_brillo_promedio(imagen)
         promedio_inicial = self.analizador.calcular_brillo_promedio(imagen)
