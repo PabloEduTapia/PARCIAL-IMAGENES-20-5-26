@@ -2,16 +2,12 @@ from PIL import ImageEnhance
 
 
 class MejoradorImagen:
-    """Aplica mejoras visuales sobre la imagen."""
-
+    """aplica mejoras visuales a imagen"""
     def ajustar_brillo(self, imagen, factor):
-        """Ajusta el brillo de la imagen.
-
+        """Ajusta brillo a imagen
         Args:
-            imagen: Imagen original.
-            factor: Factor de brillo. 1.0 mantiene igual, mayor aumenta, menor reduce.
-
+            imagen: imagen original
+            factor: Factor de brillo
         Returns:
-            Imagen con brillo ajustado.
-        """
+            imagen con brillo cambiado"""
         return ImageEnhance.Brightness(imagen).enhance(factor)
